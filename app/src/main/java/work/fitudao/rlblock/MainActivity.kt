@@ -38,7 +38,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
-import androidx.compose.material.icons.filled.KeyboardArrowRight
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
@@ -296,7 +296,7 @@ private fun NavCard(icon: androidx.compose.ui.graphics.vector.ImageVector, title
                 Text(title, style = MaterialTheme.typography.titleMedium)
                 Text(sub, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
-            Icon(Icons.Filled.KeyboardArrowRight, null)
+            Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, null)
         }
     }
 }

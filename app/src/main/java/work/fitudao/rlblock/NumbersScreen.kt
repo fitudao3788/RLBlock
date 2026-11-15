@@ -177,15 +177,14 @@ fun NumbersScreen(
             ) {
                 items(items, key = { it.number }) { item ->
                     val number = item.number
-                    val dismiss = rememberSwipeToDismissBoxState(
-                        confirmValueChange = { v ->
-                            when (v) {
-                                SwipeToDismissBoxValue.StartToEnd -> { toggle(number); false }
-                                SwipeToDismissBoxValue.EndToStart -> { delete(number); true }
-                                else -> false
-                            }
-                        },
-                    )
+                    val dismiss = rememberSwipeToDismissBoxState()
+                    LaunchedEffect(dismiss.currentValue) {
+                        when (dismiss.currentValue) {
+                            SwipeToDismissBoxValue.StartToEnd -> { toggle(number); dismiss.reset() }
+                            SwipeToDismissBoxValue.EndToStart -> delete(number)
+                            SwipeToDismissBoxValue.Settled -> {}
+                        }
+                    }
                     val shape = RoundedCornerShape(20.dp)
                     SwipeToDismissBox(
                         modifier = Modifier.animateItem(),

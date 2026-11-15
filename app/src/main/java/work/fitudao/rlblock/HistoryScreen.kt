@@ -130,16 +130,13 @@ fun HistoryScreen(onSelectingChange: (Boolean) -> Unit, onBack: () -> Unit) {
             ) {
                 items(entries, key = { "${it.time}/${it.number}/${it.reason}" }) { e ->
                     val shape = RoundedCornerShape(20.dp)
-                    val dismiss = rememberSwipeToDismissBoxState(
-                        confirmValueChange = { v ->
-                            if (v == SwipeToDismissBoxValue.Settled) false
-                            else {
-                                HistoryStore.remove(ctx, setOf(e))
-                                selected = selected - e
-                                true
-                            }
-                        },
-                    )
+                    val dismiss = rememberSwipeToDismissBoxState()
+                    LaunchedEffect(dismiss.currentValue) {
+                        if (dismiss.currentValue != SwipeToDismissBoxValue.Settled) {
+                            HistoryStore.remove(ctx, setOf(e))
+                            selected = selected - e
+                        }
+                    }
                     SwipeToDismissBox(
                         modifier = Modifier.animateItem(),
                         state = dismiss,
