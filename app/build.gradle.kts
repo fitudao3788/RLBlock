@@ -11,8 +11,8 @@ android {
     defaultConfig {
         minSdk = 26
         targetSdk = 37
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = 2
+        versionName = "1.0.1"
     }
 
     // 公開用署名: ~/.gradle/gradle.properties か -P で RLBLOCK_STORE_FILE / _STORE_PASSWORD / _KEY_ALIAS / _KEY_PASSWORD を指定。
