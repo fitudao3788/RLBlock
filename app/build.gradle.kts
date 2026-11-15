@@ -12,7 +12,7 @@ android {
         minSdk = 26
         targetSdk = 37
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.0"
     }
 
     // 公開用署名: ~/.gradle/gradle.properties か -P で RLBLOCK_STORE_FILE / _STORE_PASSWORD / _KEY_ALIAS / _KEY_PASSWORD を指定。
